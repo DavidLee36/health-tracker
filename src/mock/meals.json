@@ -1,0 +1,34 @@
+[
+	{
+		"id": "workLunch",
+		"name": "Work Lunch",
+		"components": [
+			{
+				"type": "combinedFood",
+				"id": "sandwich"
+			},
+			{
+				"type": "foodItem",
+				"id": "chips"
+			},
+			{
+				"type": "foodItem",
+				"id": "soda"
+			}
+		]
+	},
+	{
+		"id": "lightSnack",
+		"name": "Light Snack",
+		"components": [
+			{
+				"type": "foodItem",
+				"id": "apple"
+			},
+			{
+				"type": "combinedFood",
+				"id": "snackPack"
+			}
+		]
+	}
+]

@@ -1,0 +1,93 @@
+[
+	{
+		"date": "2025-05-16",
+		"entries": [
+			{
+				"type": "meal",
+				"id": "workLunch"
+			},
+			{
+				"type": "foodItem",
+				"id": "apple"
+			}
+		]
+	},
+	{
+		"date": "2025-05-15",
+		"entries": [
+			{
+				"type": "combinedFood",
+				"id": "sandwich"
+			},
+			{
+				"type": "foodItem",
+				"id": "soda"
+			}
+		]
+	},
+	{
+		"date": "2025-05-14",
+		"entries": [
+			{
+				"type": "meal",
+				"id": "workLunch"
+			},
+			{
+				"type": "foodItem",
+				"id": "apple"
+			}
+		]
+	},
+	{
+		"date": "2025-05-13",
+		"entries": [
+			{
+				"type": "combinedFood",
+				"id": "sandwich"
+			},
+			{
+				"type": "foodItem",
+				"id": "soda"
+			}
+		]
+	},
+	{
+		"date": "2025-05-12",
+		"entries": [
+			{
+				"type": "meal",
+				"id": "workLunch"
+			},
+			{
+				"type": "foodItem",
+				"id": "apple"
+			}
+		]
+	},
+	{
+		"date": "2025-05-11",
+		"entries": [
+			{
+				"type": "combinedFood",
+				"id": "sandwich"
+			},
+			{
+				"type": "foodItem",
+				"id": "soda"
+			}
+		]
+	},
+	{
+		"date": "2025-05-10",
+		"entries": [
+			{
+				"type": "meal",
+				"id": "workLunch"
+			},
+			{
+				"type": "foodItem",
+				"id": "apple"
+			}
+		]
+	}
+]

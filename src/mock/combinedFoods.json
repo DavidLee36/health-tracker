@@ -1,0 +1,34 @@
+[
+	{
+		"id": "sandwich",
+		"name": "Ham Sandwich",
+		"ingredients": [
+			{
+				"foodItemId": "bread",
+				"quantity": 2
+			},
+			{
+				"foodItemId": "ham",
+				"quantity": 2
+			},
+			{
+				"foodItemId": "cheese",
+				"quantity": 1
+			}
+		]
+	},
+	{
+		"id": "snackPack",
+		"name": "Snack Pack",
+		"ingredients": [
+			{
+				"foodItemId": "chips",
+				"quantity": 1
+			},
+			{
+				"foodItemId": "apple",
+				"quantity": 1
+			}
+		]
+	}
+]
