@@ -4,12 +4,13 @@ import Foods from "./pages/Foods";
 import Recipes from "./pages/Recipes";
 import Meals from "./pages/Meals";
 import Settings from "./pages/Settings";
+import "./app.css";
 
 function App() {
 	return (
 		<div className="site-wrapper">
 			<Router>
-				<nav style={{ padding: "1rem", borderBottom: "1px solid #ccc" }}>
+				<nav>
 					<Link to="/">Home</Link> |{" "}
 					<Link to="/foods">Foods</Link> |{" "}
 					<Link to="/recipes">Recipes</Link> |{" "}

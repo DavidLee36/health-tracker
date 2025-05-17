@@ -2,31 +2,31 @@
 	{
 		"id": "bread",
 		"name": "Bread Slice",
-		"caloriesPerServing": 80
+		"calories": 80
 	},
 	{
 		"id": "ham",
 		"name": "Ham Slice",
-		"caloriesPerServing": 50
+		"calories": 50
 	},
 	{
 		"id": "cheese",
 		"name": "Cheese Slice",
-		"caloriesPerServing": 70
+		"calories": 70
 	},
 	{
 		"id": "chips",
 		"name": "Potato Chips",
-		"caloriesPerServing": 150
+		"calories": 150
 	},
 	{
 		"id": "soda",
 		"name": "Soda Can",
-		"caloriesPerServing": 140
+		"calories": 140
 	},
 	{
 		"id": "apple",
 		"name": "Apple",
-		"caloriesPerServing": 95
+		"calories": 95
 	}
 ]
