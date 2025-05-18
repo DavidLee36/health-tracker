@@ -1,9 +1,9 @@
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Home from "./pages/Home";
-import Foods from "./pages/Foods";
-import Recipes from "./pages/Recipes";
-import Meals from "./pages/Meals";
-import Settings from "./pages/Settings";
+import HomePage from "./pages/HomePage";
+import FoodsPage from "./pages/FoodsPage";
+import RecipesPage from "./pages/RecipesPage";
+import MealsPage from "./pages/MealsPage";
+import SettingsPage from "./pages/SettingsPage";
 import "./app.css";
 
 function App() {
@@ -19,11 +19,11 @@ function App() {
 				</nav>
 
 				<Routes>
-					<Route path="/" element={<Home />} />
-					<Route path="/foods" element={<Foods />} />
-					<Route path="/recipes" element={<Recipes />} />
-					<Route path="/meals" element={<Meals />} />
-					<Route path="/settings" element={<Settings />} />
+					<Route path="/" element={<HomePage />} />
+					<Route path="/foods" element={<FoodsPage />} />
+					<Route path="/recipes" element={<RecipesPage />} />
+					<Route path="/meals" element={<MealsPage />} />
+					<Route path="/settings" element={<SettingsPage />} />
 				</Routes>
 			</Router>
 		</div>

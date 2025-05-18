@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 
-const home = () => {
+const HomePage = () => {
 	return (
 		<div>
 			<h1>Hello world</h1>
@@ -8,4 +8,4 @@ const home = () => {
 	);
 };
 
-export default home;
+export default HomePage;

@@ -1,9 +1,9 @@
 import React from "react";
 import Search from "../components/Search";
-import FoodItemsPresenter from "../components/FoodItemsPresenter";
+import FoodItemsPresenter from "../components/FoodDataPresenter";
 
 
-const Foods = () => {
+const FoodsPage = () => {
 	return (
 		<div className="page-content-wrapper">
 			<h1>Foods</h1>
@@ -20,4 +20,4 @@ const Foods = () => {
 	);
 };
 
-export default Foods;
+export default FoodsPage;
