@@ -1,64 +1,49 @@
 import React, { useState, useEffect } from "react";
+import FoodItem from "./FoodItem";
 
 import foods from "../mock/foods.json";
 import recipes from "../mock/recipes.json";
-import meals from "../mock/meals.json"
+import meals from "../mock/meals.json";
 
 const FoodItemsPresenter = ({
-	showFoods = true,
+	showFoods = false,
 	showRecipes = false,
-	showMeals = false
+	showMeals = false,
 }) => {
+	const [searchTerm, setSearchTerm] = useState("");
+	const [itemsToDisplay, setItemsToDisplay] = useState([]);
+
+	useEffect(() => {
+		const foodList = [
+			...(showFoods ? foods : []),
+			...(showRecipes ? recipes : []),
+			...(showMeals ? meals : []),
+		];
+		const filteredList = foodList.filter((item) =>
+			item.name.toLowerCase().includes(searchTerm.toLowerCase())
+		);
+		setItemsToDisplay(filteredList);
+	}, [searchTerm]);
+
+	const searchChange = (e) => {
+		setSearchTerm(e.target.value);
+	};
+
 	return (
-		<div className="food-list-container">
-			{showFoods && (
-				<div className="food-list">
-					<h3>Foods</h3>
-					<ul>
-						{foods.map((item, index) => (
-							<li key={index}>
-								<strong>{item.name}</strong>: {item.calories} cal
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
-			{showRecipes && (
-				<div className="food-list">
-					<h3>Recipes</h3>
-					<ul>
-						{foods.map((item, index) => (
-							<li key={index}>
-								<strong>{item.name}</strong>: {item.calories} cal
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
-			{showMeals && (
-				<div className="food-list">
-					<h3>Meals</h3>
-					<ul>
-						{foods.map((item, index) => (
-							<li key={index}>
-								<strong>{item.name}</strong>: {item.calories} cal
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
-			{showMeals && (
-				<div className="food-list">
-					<h3>Meals</h3>
-					<ul>
-						{foods.map((item, index) => (
-							<li key={index}>
-								<strong>{item.name}</strong>: {item.calories} cal
-							</li>
-						))}
-					</ul>
-				</div>
-			)}
+		<div className="content-presenter-wrapper">
+			<div className="search-bar-wrapper">
+				<input
+					type="text"
+					className="search-bar"
+					placeholder="Search"
+					onChange={searchChange}
+				/>
+			</div>
+			<div className="food-list-container">
+				{itemsToDisplay.map((item, index) => (
+					<FoodItem food={item} />
+				))}
+			</div>
 		</div>
 	);
 };

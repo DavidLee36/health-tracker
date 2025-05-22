@@ -2,17 +2,18 @@
 	{
 		"id": "sandwich",
 		"name": "Ham Sandwich",
-		"ingredients": [
+		"type": "recipe",
+		"components": [
 			{
-				"foodItemId": "bread",
+				"componentID": "bread",
 				"quantity": 2
 			},
 			{
-				"foodItemId": "ham",
+				"componentID": "ham",
 				"quantity": 2
 			},
 			{
-				"foodItemId": "cheese",
+				"componentID": "cheese",
 				"quantity": 1
 			}
 		]
@@ -20,13 +21,14 @@
 	{
 		"id": "snackPack",
 		"name": "Snack Pack",
-		"ingredients": [
+		"type": "recipe",
+		"components": [
 			{
-				"foodItemId": "chips",
+				"componentID": "chips",
 				"quantity": 1
 			},
 			{
-				"foodItemId": "apple",
+				"componentID": "apple",
 				"quantity": 1
 			}
 		]

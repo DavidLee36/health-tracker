@@ -2,32 +2,34 @@
 	{
 		"id": "workLunch",
 		"name": "Work Lunch",
+		"type": "meal",
 		"components": [
 			{
-				"type": "combinedFood",
-				"id": "sandwich"
+				"componentID": "sandwich",
+				"quantity": 1
 			},
 			{
-				"type": "foodItem",
-				"id": "chips"
+				"componentID": "chips",
+				"quantity": 1
 			},
 			{
-				"type": "foodItem",
-				"id": "soda"
+				"componentID": "soda",
+				"quantity": 1
 			}
 		]
 	},
 	{
 		"id": "lightSnack",
 		"name": "Light Snack",
+		"type": "meal",
 		"components": [
 			{
-				"type": "foodItem",
-				"id": "apple"
+				"componentID": "apple",
+				"quantity": 1
 			},
 			{
-				"type": "combinedFood",
-				"id": "snackPack"
+				"componentID": "snackPack",
+				"quantity": 1
 			}
 		]
 	}

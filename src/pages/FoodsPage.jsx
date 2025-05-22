@@ -9,7 +9,9 @@ const FoodsPage = () => {
 			<h1>Foods</h1>
 			<div className="main-food-page-content-wrapper">
 				<FoodItemsPresenter showFoods={true} />
-				<Search></Search>
+				<div className="quick-edit">
+					<h3>quick edit</h3>
+				</div>
 			</div>
 			<div className="aed-buttons">
 				<button className="add-btn">Add</button>

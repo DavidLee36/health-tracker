@@ -45,7 +45,8 @@ nav a:hover {
 	display: flex;
 	justify-content: space-around;
 	flex-grow: 4;
-	max-height: 75vh;
+	height: 70vh;
+	flex-wrap: wrap;
 }
 
 .aed-buttons {
@@ -66,9 +67,32 @@ button {
 	cursor: not-allowed;
 }
 
-.food-list-container {
-	width: fit-content;
+.content-presenter-wrapper {
+	display: flex;
+	flex-direction: column;
+	border: 1px solid green;
 	max-height: 100%;
-	overflow-y: auto;
 	box-sizing: border-box;
+	width: 50vw;
+	align-items: center;
+	min-width: 500px;
+	justify-content: space-around;
+}
+
+.food-list-container {
+	overflow-y: auto;
+	display: flex;
+	box-sizing: border-box;
+	border: 1px solid rgb(169, 43, 135);
+	width: 100%;
+	flex-grow: 1;
+	max-height: 85%;
+}
+
+.quick-edit {
+	min-width: 500px;
+	display: flex;
+	width: 50vw;;
+	box-sizing: border-box;
+	border: 1px solid blue;
 }
