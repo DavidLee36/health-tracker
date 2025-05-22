@@ -2,31 +2,37 @@
 	{
 		"id": "bread",
 		"name": "Bread Slice",
-		"calories": 80
+		"calories": 80,
+		"type": "food"
 	},
 	{
 		"id": "ham",
 		"name": "Ham Slice",
-		"calories": 50
+		"calories": 50,
+		"type": "food"
 	},
 	{
 		"id": "cheese",
 		"name": "Cheese Slice",
-		"calories": 70
+		"calories": 70,
+		"type": "food"
 	},
 	{
 		"id": "chips",
 		"name": "Potato Chips",
-		"calories": 150
+		"calories": 150,
+		"type": "food"
 	},
 	{
 		"id": "soda",
 		"name": "Soda Can",
-		"calories": 140
+		"calories": 140,
+		"type": "food"
 	},
 	{
 		"id": "apple",
 		"name": "Apple",
-		"calories": 95
+		"calories": 95,
+		"type": "food"
 	}
 ]

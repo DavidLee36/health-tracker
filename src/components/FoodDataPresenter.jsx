@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import FoodItem from "./FoodItem";
+import RecipeItem from "./RecipeItem";
+import MealItem from "./MealItem";
 
 import foods from "../mock/foods.json";
 import recipes from "../mock/recipes.json";
@@ -39,10 +41,19 @@ const FoodItemsPresenter = ({
 					onChange={searchChange}
 				/>
 			</div>
-			<div className="food-list-container">
-				{itemsToDisplay.map((item, index) => (
-					<FoodItem food={item} />
-				))}
+			<div className="food-grid-container">
+				<div className="food-grid">
+					{itemsToDisplay.map((item, index) => {
+						if (item.type === "food") {
+							return <FoodItem key={index} food={item} />;
+						} else if (item.type === "recipe") {
+							return <RecipeItem key={index} recipe={item} />;
+						} else if (item.type === "meal") {
+							return <MealItem key={index} meal={item} />;
+						}
+						return null;
+					})}
+				</div>
 			</div>
 		</div>
 	);

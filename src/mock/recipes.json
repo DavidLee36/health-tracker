@@ -6,14 +6,17 @@
 		"components": [
 			{
 				"componentID": "bread",
+				"type": "food",
 				"quantity": 2
 			},
 			{
 				"componentID": "ham",
+				"type": "food",
 				"quantity": 2
 			},
 			{
 				"componentID": "cheese",
+				"type": "food",
 				"quantity": 1
 			}
 		]
@@ -25,10 +28,12 @@
 		"components": [
 			{
 				"componentID": "chips",
+				"type": "food",
 				"quantity": 1
 			},
 			{
 				"componentID": "apple",
+				"type": "food",
 				"quantity": 1
 			}
 		]

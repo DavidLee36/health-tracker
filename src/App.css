@@ -79,7 +79,7 @@ button {
 	justify-content: space-around;
 }
 
-.food-list-container {
+.food-grid-container {
 	overflow-y: auto;
 	display: flex;
 	box-sizing: border-box;
@@ -87,6 +87,83 @@ button {
 	width: 100%;
 	flex-grow: 1;
 	max-height: 85%;
+}
+
+.food-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  	gap: 1rem;
+	padding: 1rem;
+	width: 100%;
+	height: fit-content;
+	max-height: 100%;
+	justify-items: center;
+	align-items: center;
+}
+
+.grid-item-wrapper {
+	height: fit-content;
+	transition: ease all 0.2s;
+}
+
+.food-grid-item-wrapper {
+	border: 1px solid #1e3a8a;
+	background-color: rgba(30, 58, 138, 0.2);
+	box-shadow: 0 0 8px rgba(30, 58, 138, 0.3);
+}
+
+.food-grid-item-wrapper:hover {
+	transform: scale(1.02);
+	box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
+}
+
+.recipe-grid-item-wrapper {
+	border: 1px solid #991b1b;
+	background-color: rgba(153, 27, 27, 0.2);
+	box-shadow: 0 0 8px rgba(185, 28, 28, 0.3);
+}
+
+.recipe-grid-item-wrapper:hover {
+	transform: scale(1.02);
+	box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+}
+
+.grid-item-wrapper:active {
+	transform: scale(0.96);
+}
+
+.grid-item-wrapper {
+	color: #ebeff5;
+	display: flex;
+	flex-direction: column;
+	width: 100%;
+	max-width: 350px;
+	height: 3.5rem;
+	min-height: fit-content;
+	border-radius: 10px;
+	align-items: center;
+	justify-content: center;
+	cursor: pointer;
+	position: relative;
+}
+
+.grid-item-text {
+	margin: 0;
+	text-align: center;
+}
+
+.expand-grid-item {
+	position: absolute;
+	top: 0.75rem;
+	right: 10px;
+	font-size: large;
+	padding-top: 3px;
+	padding-inline: 5px;
+	transition: ease all 0.1s;
+}
+
+.expand-grid-item:hover {
+	transform: scale(1.02);
 }
 
 .quick-edit {
