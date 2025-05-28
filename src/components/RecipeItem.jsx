@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from "react";
+import FoodItem from "./FoodItem.jsx";
 
 import foods from "../mock/foods.json";
 
-const RecipeItem = ({ recipe }) => {
+const RecipeItem = ({ recipe, component, amount=1 }) => {
 	const [calories, setCalories] = useState(0);
 	const [expanded, setExpanded] = useState(false);
 
@@ -17,24 +18,31 @@ const RecipeItem = ({ recipe }) => {
 		setCalories(total);
 	}, []);
 
-	useEffect(() => {
-		console.log("toggled");
-	}, [expanded])
-
 	return (
-		<div className="recipe-grid-item-wrapper grid-item-wrapper">
+		<div className={`recipe-grid-item-wrapper grid-item-wrapper ${component ? 'component' : ''}`}>
 			<p className="grid-item-text">
-				<strong>{recipe.name}</strong> <br />
-				Calories: {calories}
+				<strong>{recipe.name}{amount > 1 && ` x${amount}`}</strong> <br />
+				Calories: {calories * amount}
 			</p>
-			<div className="expand-grid-item" onClick={() => setExpanded(prev => !prev)}>
+			<div
+				className="expand-grid-item"
+				onClick={() => setExpanded((prev) => !prev)}>
 				{expanded ? "△" : "▽"}
 			</div>
-			{expanded &&
+			{expanded && (
 				<div className="expanded-items">
-					
+					{recipe.components.map((element, index) => (
+						<FoodItem
+							key={index}
+							food={foods.find(
+								(f) => f.id === element.componentID
+							)}
+							component={true}
+							amount={element.quantity}
+						/>
+					))}
 				</div>
-			}
+			)}
 		</div>
 	);
 };

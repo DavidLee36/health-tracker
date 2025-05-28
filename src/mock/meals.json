@@ -6,14 +6,17 @@
 		"components": [
 			{
 				"componentID": "sandwich",
+				"type": "recipe",
 				"quantity": 1
 			},
 			{
 				"componentID": "chips",
+				"type": "food",
 				"quantity": 1
 			},
 			{
 				"componentID": "soda",
+				"type": "food",
 				"quantity": 1
 			}
 		]
@@ -24,11 +27,13 @@
 		"type": "meal",
 		"components": [
 			{
-				"componentID": "apple",
+				"componentID": "snackPack",
+				"type": "recipe",
 				"quantity": 1
 			},
 			{
-				"componentID": "snackPack",
+				"componentID": "apple",
+				"type": "food",
 				"quantity": 1
 			}
 		]

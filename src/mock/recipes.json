@@ -37,5 +37,56 @@
 				"quantity": 1
 			}
 		]
+	},
+	{
+		"id": "snackPack",
+		"name": "Snack Pack",
+		"type": "recipe",
+		"components": [
+			{
+				"componentID": "chips",
+				"type": "food",
+				"quantity": 1
+			},
+			{
+				"componentID": "apple",
+				"type": "food",
+				"quantity": 1
+			}
+		]
+	},
+	{
+		"id": "snackPack",
+		"name": "Snack Pack",
+		"type": "recipe",
+		"components": [
+			{
+				"componentID": "chips",
+				"type": "food",
+				"quantity": 1
+			},
+			{
+				"componentID": "apple",
+				"type": "food",
+				"quantity": 1
+			}
+		]
+	},
+	{
+		"id": "snackPack",
+		"name": "Snack Pack",
+		"type": "recipe",
+		"components": [
+			{
+				"componentID": "chips",
+				"type": "food",
+				"quantity": 1
+			},
+			{
+				"componentID": "apple",
+				"type": "food",
+				"quantity": 1
+			}
+		]
 	}
 ]

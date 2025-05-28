@@ -98,7 +98,6 @@ button {
 	height: fit-content;
 	max-height: 100%;
 	justify-items: center;
-	align-items: center;
 }
 
 .grid-item-wrapper {
@@ -106,31 +105,31 @@ button {
 	transition: ease all 0.2s;
 }
 
+.grid-item-wrapper:hover {
+	transform: scale(1.02);
+}
+
 .food-grid-item-wrapper {
-	border: 1px solid #1e3a8a;
-	background-color: rgba(30, 58, 138, 0.2);
+	border: 1px solid #082166;
+	background-color: rgb(19, 43, 109);
 	box-shadow: 0 0 8px rgba(30, 58, 138, 0.3);
 }
 
-.food-grid-item-wrapper:hover {
-	transform: scale(1.02);
-	box-shadow: 0 0 4px rgba(59, 130, 246, 0.5);
-}
-
 .recipe-grid-item-wrapper {
-	border: 1px solid #991b1b;
-	background-color: rgba(153, 27, 27, 0.2);
+	border: 1px solid #8c0202;
+	background-color: rgb(109, 17, 17);
 	box-shadow: 0 0 8px rgba(185, 28, 28, 0.3);
 }
 
-.recipe-grid-item-wrapper:hover {
-	transform: scale(1.02);
-	box-shadow: 0 0 4px rgba(239, 68, 68, 0.5);
+.meal-grid-item-wrapper {
+	border: 1px solid #2c004b; /* Royal Purple */
+	background-color: rgb(71, 19, 108);
+	box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
 }
 
-.grid-item-wrapper:active {
+/* .grid-item-wrapper:active {
 	transform: scale(0.96);
-}
+} */
 
 .grid-item-wrapper {
 	color: #ebeff5;
@@ -164,6 +163,22 @@ button {
 
 .expand-grid-item:hover {
 	transform: scale(1.02);
+}
+
+.expanded-items {
+	display: flex;
+	flex-direction: column;
+	align-items: end;
+	padding-right: 1rem;
+	padding-block: 0.5rem;
+	width: 100%;
+	gap: 0.5rem;
+}
+
+.component {
+	border: 1px solid black;
+	width: 75% !important;
+	z-index: 50;
 }
 
 .quick-edit {
