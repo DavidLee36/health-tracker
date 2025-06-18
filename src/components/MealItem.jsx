@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import FoodItem from "./FoodItem.jsx";
 import RecipeItem from "./RecipeItem.jsx";
 
@@ -6,12 +7,17 @@ import foods from "../mock/foods.json";
 import recipes from "../mock/recipes.json";
 
 const MealItem = ({ meal, component }) => {
+	const navigate = useNavigate();
 	const [calories, setCalories] = useState(0);
 	const [expanded, setExpanded] = useState(false);
 
 	useEffect(() => {
 		calculateMealCalories();
 	}, []);
+
+	const handleClick = (e) => {
+		navigate(`/meals?id=${meal.id}`)
+	}
 
 	const calculateMealCalories = () => {
 		const total = meal.components.reduce((sum, component) => {
@@ -51,14 +57,17 @@ const MealItem = ({ meal, component }) => {
 		<div
 			className={`meal-grid-item-wrapper grid-item-wrapper ${
 				component ? "component" : ""
-			}`}>
+			}`} onClick={handleClick}>
 			<p className="grid-item-text">
 				<strong>{meal.name}</strong> <br />
 				Calories: {calories}
 			</p>
 			<div
 				className="expand-grid-item"
-				onClick={() => setExpanded((prev) => !prev)}>
+				onClick={(e) => {
+					e.stopPropagation();
+					setExpanded((prev) => !prev)
+					}}>
 				{expanded ? "△" : "▽"}
 			</div>
 			{expanded && (

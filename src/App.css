@@ -113,18 +113,21 @@ button {
 	border: 1px solid #082166;
 	background-color: rgb(19, 43, 109);
 	box-shadow: 0 0 8px rgba(30, 58, 138, 0.3);
+	z-index: 10;
 }
 
 .recipe-grid-item-wrapper {
 	border: 1px solid #8c0202;
 	background-color: rgb(109, 17, 17);
 	box-shadow: 0 0 8px rgba(185, 28, 28, 0.3);
+	z-index: 5;
 }
 
 .meal-grid-item-wrapper {
 	border: 1px solid #2c004b; /* Royal Purple */
 	background-color: rgb(71, 19, 108);
 	box-shadow: 0 0 8px rgba(106, 13, 173, 0.3);
+	z-index: 0;
 }
 
 /* .grid-item-wrapper:active {
@@ -178,7 +181,6 @@ button {
 .component {
 	border: 1px solid black;
 	width: 75% !important;
-	z-index: 50;
 }
 
 .quick-edit {
