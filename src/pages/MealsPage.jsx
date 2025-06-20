@@ -1,14 +1,85 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
+import { useLocation } from "react-router-dom";
+import meals from "../mock/meals.json";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
+import { calculateMealCalories } from "../helpers/food-helpers";
 
 const MealsPage = () => {
+	const query = new URLSearchParams(useLocation().search);
+	const id = query.get("id");
+
+	const [formData, setFormData] = useState({
+		id: "",
+		name: "",
+		calories: "",
+	});
+
+	useEffect(() => {
+		if (id) {
+			const found = meals.find((f) => f.id === id);
+			if (found) {
+				setFormData({
+					id: found.id,
+					name: found.name,
+					calories: calculateMealCalories(meals.find((f) => f.id === id)),
+				});
+			}
+		}
+	}, [id]);
+
+	const handleChange = (e) => {
+		setFormData({
+			...formData,
+			[e.target.name]: e.target.value,
+		});
+	};
+
+
 	return (
 		<div className="page-content-wrapper">
 			<h1>Meals</h1>
 			<div className="main-food-page-content-wrapper">
 				<FoodItemsPresenter showMeals={true} />
 				<div className="quick-edit">
-					<h3>quick edit</h3>
+					<h2>Selected: {formData.name}</h2>
+					<form
+						className="meal-form"
+						onSubmit={(e) => e.preventDefault()}>
+						<div className="form-group">
+							<label htmlFor="food-id">ID</label>
+							<input
+								type="text"
+								id="food-id"
+								name="id"
+								value={formData.id}
+								onChange={handleChange}
+								required
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="food-name">Name</label>
+							<input
+								type="text"
+								id="food-name"
+								name="name"
+								value={formData.name}
+								onChange={handleChange}
+								required
+							/>
+						</div>
+						<div className="form-group">
+							<label htmlFor="food-calories">Calories</label>
+							<input
+								type="number"
+								id="food-calories"
+								name="calories"
+								onChange={handleChange}
+								value={formData.calories}
+								required
+							/>
+						</div>
+						<button type="submit">Submit</button>
+					</form>
 				</div>
 			</div>
 			<div className="aed-buttons">
