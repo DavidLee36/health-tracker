@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FoodItem from "./FoodItem.jsx";
 import RecipeItem from "./RecipeItem.jsx";
-import { calculateMealCalories } from "../helpers/food-helpers.js"
+import { calculateMealCalories } from "../helpers/foodHelpers.js"
 
 import foods from "../mock/foods.json";
 import recipes from "../mock/recipes.json";

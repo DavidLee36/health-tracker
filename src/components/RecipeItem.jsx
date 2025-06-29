@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { calculateRecipeCalories } from "../helpers/food-helpers";
+import { calculateRecipeCalories } from "../helpers/foodHelpers.js";
 import FoodItem from "./FoodItem.jsx";
 import foods from "../mock/foods.json";
 

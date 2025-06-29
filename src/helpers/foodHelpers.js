@@ -4,6 +4,15 @@ import foods from "../mock/foods.json";
 import recipes from "../mock/recipes.json";
 import meals from "../mock/meals.json";
 
+
+
+export const getItemsByType = async(type) => {
+	const foods = await getFoods();
+	if (!Array.isArray(foods)) return [];
+
+	return foods.filter((item) => item.type === type);
+}
+
 export const calculateRecipeCalories = (recipe) => {
 	const total = recipe.components.reduce((sum, component) => {
 		const food = foods.find((f) => f.id === component.componentID);

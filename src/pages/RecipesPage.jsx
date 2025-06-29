@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import recipes from "../mock/recipes.json";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
-import { calculateRecipeCalories } from "../helpers/food-helpers";
+import { calculateRecipeCalories } from "../helpers/foodHelpers";
 
 const RecipesPage = () => {
 	const query = new URLSearchParams(useLocation().search);

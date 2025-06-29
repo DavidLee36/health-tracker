@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import meals from "../mock/meals.json";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
-import { calculateMealCalories } from "../helpers/food-helpers";
+import { calculateMealCalories } from "../helpers/foodHelpers";
 
 const MealsPage = () => {
 	const query = new URLSearchParams(useLocation().search);
