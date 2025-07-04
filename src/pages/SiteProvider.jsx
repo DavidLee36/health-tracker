@@ -1,5 +1,5 @@
 import { createContext, useContext, useState, useEffect } from "react";
-import { getFoodsCached, saveFoods } from "../data/dataService";
+import { getFoodsCached, updateFoods as updateFoodsOnServer } from "../data/dataService";
 
 const SiteContext = createContext();
 export const useSite = () => useContext(SiteContext);
@@ -17,16 +17,17 @@ export const SiteProvider = ({ children }) => {
 		})();
 	}, []);
 
-	const updateFoods = async (newFoods) => {
-		setFoods(newFoods);
-		await saveFoods(newFoods);
+	const updateFoods = async (formData) => {
+		await updateFoodsOnServer(formData);
+		const latest = await getFoodsCached();
+		setFoods(latest);
 	};
 
 	return (
 		<SiteContext.Provider
 			value={{
 				foods,
-				setFoods: updateFoods,
+				updateFoods: updateFoods,
 				expenses,
 				setExpenses,
 				aquariumState,

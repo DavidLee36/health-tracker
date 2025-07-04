@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import meals from "../mock/meals.json";
+import { useSite } from "./SiteProvider";
+import { updateFoods } from "../data/dataService";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
 import { calculateMealCalories } from "../helpers/foodHelpers";
 
 const MealsPage = () => {
+	const { foods } = useSite();
 	const query = new URLSearchParams(useLocation().search);
 	const id = query.get("id");
 
@@ -16,12 +18,12 @@ const MealsPage = () => {
 
 	useEffect(() => {
 		if (id) {
-			const found = meals.find((f) => f.id === id);
+			const found = foods.find((f) => f.id === id);
 			if (found) {
 				setFormData({
 					id: found.id,
 					name: found.name,
-					calories: calculateMealCalories(meals.find((f) => f.id === id)),
+					calories: calculateMealCalories(foods.find((f) => f.id === id)),
 				});
 			}
 		}
@@ -41,7 +43,10 @@ const MealsPage = () => {
 			<div className="main-food-page-content-wrapper">
 				<FoodItemsPresenter showMeals={true} />
 				<div className="quick-edit">
-					<h2>Selected: {formData.name}</h2>
+					<h2>
+						Selected:
+						{id ? foods.find((f) => f.id === id).name : "none"}
+					</h2>
 					<form
 						className="meal-form"
 						onSubmit={(e) => e.preventDefault()}>
@@ -81,11 +86,6 @@ const MealsPage = () => {
 						<button type="submit">Submit</button>
 					</form>
 				</div>
-			</div>
-			<div className="aed-buttons">
-				<button className="add-btn">Add</button>
-				<button className="edit-btn btn-not-active">Edit</button>
-				<button className="delete-btn">Delete</button>
 			</div>
 		</div>
 	);

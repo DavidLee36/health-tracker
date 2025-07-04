@@ -3,29 +3,29 @@ import FoodItem from "./FoodItem";
 import RecipeItem from "./RecipeItem";
 import MealItem from "./MealItem";
 
-import foods from "../mock/foods.json";
-import recipes from "../mock/recipes.json";
-import meals from "../mock/meals.json";
+import { useSite } from "../pages/SiteProvider";
 
 const FoodItemsPresenter = ({
 	showFoods = false,
 	showRecipes = false,
 	showMeals = false,
 }) => {
+	const { foods } = useSite();
 	const [searchTerm, setSearchTerm] = useState("");
 	const [itemsToDisplay, setItemsToDisplay] = useState([]);
 
 	useEffect(() => {
+		console.log("foodsssss ", foods)
 		const foodList = [
-			...(showFoods ? foods : []),
-			...(showRecipes ? recipes : []),
-			...(showMeals ? meals : []),
+			...(showFoods ? foods.filter((item) => item.type === "food") : []),
+			...(showRecipes ? foods.filter((item) => item.type === "recipe") : []),
+			...(showMeals ? foods.filter((item) => item.type === "meal") : []),
 		];
 		const filteredList = foodList.filter((item) =>
 			item.name.toLowerCase().includes(searchTerm.toLowerCase())
 		);
 		setItemsToDisplay(filteredList);
-	}, [searchTerm]);
+	}, [searchTerm, foods]);
 
 	const searchChange = (e) => {
 		setSearchTerm(e.target.value);
