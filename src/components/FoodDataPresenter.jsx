@@ -9,6 +9,7 @@ const FoodItemsPresenter = ({
 	showFoods = false,
 	showRecipes = false,
 	showMeals = false,
+	allowNavigate = true
 }) => {
 	const { foods } = useSite();
 	const [searchTerm, setSearchTerm] = useState("");
@@ -44,12 +45,12 @@ const FoodItemsPresenter = ({
 			<div className="food-grid-container">
 				<div className="food-grid">
 					{itemsToDisplay.map((item, index) => {
-						if (item.type === "food") {
-							return <FoodItem key={index} food={item} />;
+						if (item.type === "meal") {
+							return <MealItem key={index} meal={item} allowNavigate={allowNavigate}/>;
 						} else if (item.type === "recipe") {
-							return <RecipeItem key={index} recipe={item} />;
-						} else if (item.type === "meal") {
-							return <MealItem key={index} meal={item} />;
+							return <RecipeItem key={index} recipe={item} allowNavigate={allowNavigate}/>;
+						} else if (item.type === "food") {
+							return <FoodItem key={index} food={item} allowNavigate={allowNavigate}/>;
 						}
 						return null;
 					})}

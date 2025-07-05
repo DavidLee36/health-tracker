@@ -1,12 +1,12 @@
 import React from "react";
 import { useNavigate } from 'react-router-dom';
 
-const FoodItem = ({ food, component, amount=1 }) => {
+const FoodItem = ({ food, component, amount=1, allowNavigate = true }) => {
 	const navigate = useNavigate();
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		navigate(`/foods?id=${food.id}`);
+		if (allowNavigate) navigate(`/foods?id=${food.id}`);
 	}
 
 	return (

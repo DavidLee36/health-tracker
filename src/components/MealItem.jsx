@@ -5,7 +5,7 @@ import RecipeItem from "./RecipeItem.jsx";
 import { calculateMealCalories } from "../helpers/foodHelpers.js";
 import { useSite } from "../pages/SiteProvider.jsx";
 
-const MealItem = ({ meal, component }) => {
+const MealItem = ({ meal, component, allowNavigate = true }) => {
 	const { foods } = useSite();
 	const navigate = useNavigate();
 	const [expanded, setExpanded] = useState(false);
@@ -20,7 +20,7 @@ const MealItem = ({ meal, component }) => {
 	}, [meal.components]);
 
 	const handleClick = (e) => {
-		navigate(`/meals?id=${meal.id}`)
+		if (allowNavigate) navigate(`/meals?id=${meal.id}`)
 	}
 
 	return (
@@ -52,6 +52,7 @@ const MealItem = ({ meal, component }) => {
 									)}
 									component={true}
 									amount={element.quantity}
+									allowNavigate={allowNavigate}
 								/>
 							);
 						} else {
@@ -63,6 +64,7 @@ const MealItem = ({ meal, component }) => {
 									)}
 									component={true}
 									amount={element.quantity}
+									allowNavigate={allowNavigate}
 								/>
 							);
 						}
