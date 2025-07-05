@@ -2,31 +2,46 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import { calculateRecipeCalories } from "../helpers/foodHelpers.js";
 import FoodItem from "./FoodItem.jsx";
-import foods from "../mock/foods.json";
+import { useSite } from "../pages/SiteProvider.jsx";
 
-const RecipeItem = ({ recipe, component, amount=1 }) => {
+const RecipeItem = ({ recipe, component, amount = 1 }) => {
+	const { foods } = useSite();
 	const navigate = useNavigate();
 	const [expanded, setExpanded] = useState(false);
+	const [calories, setCalories] = useState(0);
 
-	const calories = calculateRecipeCalories(recipe);
+	useEffect(() => {
+		const load = async () => {
+			setCalories(await calculateRecipeCalories(recipe));
+		};
+		load();
+	}, [recipe.components]);
 
 	const handleClick = (e) => {
 		e.stopPropagation();
 		navigate(`/recipes?id=${recipe.id}`);
-	}
+	};
 
 	return (
-		<div className={`recipe-grid-item-wrapper grid-item-wrapper ${component ? 'component' : ''}`} onClick={handleClick}>
+		<div
+			className={`recipe-grid-item-wrapper grid-item-wrapper ${
+				component ? "component" : ""
+			}`}
+			onClick={handleClick}>
 			<p className="grid-item-text">
-				<strong>{recipe.name}{amount > 1 && ` x${amount}`}</strong> <br />
+				<strong>
+					{recipe.name}
+					{amount > 1 && ` x${amount}`}
+				</strong>{" "}
+				<br />
 				Calories: {calories * amount}
 			</p>
 			<div
 				className="expand-grid-item"
 				onClick={(e) => {
 					e.stopPropagation();
-					setExpanded((prev) => !prev)
-					}}>
+					setExpanded((prev) => !prev);
+				}}>
 				{expanded ? "△" : "▽"}
 			</div>
 			{expanded && (

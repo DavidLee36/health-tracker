@@ -2,16 +2,22 @@ import React, { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import FoodItem from "./FoodItem.jsx";
 import RecipeItem from "./RecipeItem.jsx";
-import { calculateMealCalories } from "../helpers/foodHelpers.js"
-
-import foods from "../mock/foods.json";
-import recipes from "../mock/recipes.json";
+import { calculateMealCalories } from "../helpers/foodHelpers.js";
+import { useSite } from "../pages/SiteProvider.jsx";
 
 const MealItem = ({ meal, component }) => {
+	const { foods } = useSite();
 	const navigate = useNavigate();
 	const [expanded, setExpanded] = useState(false);
+	const [calories, setCalories] = useState(0);
 
-	const calories = calculateMealCalories(meal);
+	useEffect(() => {
+		console.log(meal);
+		const load = async() => {
+			setCalories(await calculateMealCalories(meal));
+		}
+		load();
+	}, [meal.components]);
 
 	const handleClick = (e) => {
 		navigate(`/meals?id=${meal.id}`)
@@ -41,7 +47,7 @@ const MealItem = ({ meal, component }) => {
 							return (
 								<RecipeItem
 									key={index}
-									recipe={recipes.find(
+									recipe={foods.find(
 										(r) => r.id === element.componentID
 									)}
 									component={true}

@@ -21,10 +21,10 @@ export const getFoods = async() => {
 }
 
 // Load from localStorage if available, else fetch from API and cache it
-export const getFoodsCached = async () => {
+export const getFoodsCached = async (bypass = false) => {
 	const cached = localStorage.getItem(FOODS_KEY);
 
-	if (cached) {
+	if (cached && !bypass) {
 		try {
 			const parsed = JSON.parse(cached);
 			if (Array.isArray(parsed) && parsed.length > 0) {

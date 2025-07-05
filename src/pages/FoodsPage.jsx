@@ -3,19 +3,21 @@ import { useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
 import { useSite } from "./SiteProvider";
+import { useNavigate } from 'react-router-dom';
 
 const FoodsPage = () => {
 	const { foods, updateFoods } = useSite();
-	const [formData, setFormData] = useState({
+	const initialForm = {
 		id: "",
-		name: "none",
+		name: "",
 		calories: "",
-	});
+	}
+	const [formData, setFormData] = useState(initialForm);
 	const query = new URLSearchParams(useLocation().search);
 	const id = query.get("id");
+	const navigate = useNavigate();
 
 	useEffect(() => {
-		console.log(foods);
 		if (id) {
 			const found = foods.find((f) => f.id === id);
 			if (found) {
@@ -25,6 +27,8 @@ const FoodsPage = () => {
 					calories: found.calories,
 				});
 			}
+		}else {
+			setFormData(initialForm);
 		}
 	}, [id, foods]);
 
@@ -48,6 +52,10 @@ const FoodsPage = () => {
 		console.log(id);
 	};
 
+	const handleClear = (e) => {
+		navigate("/foods");
+	}
+
 	return (
 		<div className="page-content-wrapper">
 			<h1>Foods</h1>
@@ -55,8 +63,10 @@ const FoodsPage = () => {
 				<FoodItemsPresenter showFoods={true} />
 				<div className="quick-edit">
 					<h2>
-						Selected:
-						{id ? foods.find((f) => f.id === id).name : "none"}
+						Selected:{" "}
+						{id
+							? foods.find((f) => f.id === id)?.name || "none"
+							: "none"}
 					</h2>
 					<form className="food-form" onSubmit={handleSubmit}>
 						<div className="form-group">
@@ -92,8 +102,11 @@ const FoodsPage = () => {
 								required
 							/>
 						</div>
-						<button type="submit">Submit</button>
-						<button onClick={handleDelete}>Delete</button>
+						<div className="form-btn-grup">
+							<button type="submit">Submit</button>
+							<button onClick={handleClear}>Clear</button>
+							<button onClick={handleDelete}>Delete</button>
+						</div>
 					</form>
 				</div>
 			</div>

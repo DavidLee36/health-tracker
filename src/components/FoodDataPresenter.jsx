@@ -37,7 +37,7 @@ const FoodItemsPresenter = ({
 				<input
 					type="text"
 					className="search-bar"
-					placeholder="Search"
+					placeholder="Search..."
 					onChange={searchChange}
 				/>
 			</div>

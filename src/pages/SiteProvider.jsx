@@ -19,7 +19,7 @@ export const SiteProvider = ({ children }) => {
 
 	const updateFoods = async (formData) => {
 		await updateFoodsOnServer(formData);
-		const latest = await getFoodsCached();
+		const latest = await getFoodsCached(true);
 		setFoods(latest);
 	};
 
