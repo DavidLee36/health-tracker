@@ -4,7 +4,7 @@
 	display: flex;
 	flex-direction: column;
 	font-family: sans-serif;
-	width: 100vw;
+	width: 100%;
 	box-sizing: border-box;
 }
 
@@ -38,6 +38,8 @@ nav a:hover {
 	flex-grow: 1;
 	align-items: center;
 	width: 100%;
+	border: 1px solid green;
+	min-height: fit-content;
 }
 
 .main-food-page-content-wrapper {
@@ -70,20 +72,24 @@ button {
 .content-presenter-wrapper {
 	display: flex;
 	flex-direction: column;
-	border: 1px solid green;
-	max-height: 100%;
+	
 	box-sizing: border-box;
-	width: 50vw;
+	/* width: 50vw; */
 	align-items: center;
-	min-width: 500px;
+	width: 100%;
 	justify-content: space-around;
+	max-height: 100%;
+}
+
+.fuck-this {
+	width: 50vw;
+	max-height: 70%;
 }
 
 .food-grid-container {
 	overflow-y: auto;
 	display: flex;
 	box-sizing: border-box;
-	border: 1px solid rgb(169, 43, 135);
 	width: 100%;
 	flex-grow: 1;
 	max-height: 85%;
@@ -189,4 +195,168 @@ button {
 	width: 50vw;;
 	box-sizing: border-box;
 	border: 1px solid blue;
+}
+
+.food-dashboard-wrapper {
+	margin-top: 20px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: center;
+	gap: 2rem;
+	width: 100%;
+	padding: 2rem;
+	box-sizing: border-box;
+}
+
+/* Dashboard Card Container */
+.dashboard-child {
+	display: flex;
+	flex-direction: column;
+	border-radius: 14px;
+	border: 2px solid rgb(29, 29, 29);
+	background-color: #272727d3;
+
+	/* Set flexible size */
+	flex: 0 1 30%;
+	max-height: 350px;
+	min-width: fit-content;
+
+	/* Hide overflow from header/footer/etc. */
+	overflow: hidden;
+}
+
+/* Optional: visually unify titles */
+.dashboard-child h2 {
+	margin: 0 0 1rem;
+	text-align: center;
+}
+
+/* Scrollable inner area */
+.scrollable-content {
+	flex: 1 1 auto;
+	overflow-y: auto;
+	min-height: 0; /* 🔥 Needed in flex column for scroll to work */
+	padding-right: 0.5rem;
+}
+
+/* Section-specific styling */
+.add-from-list {
+	box-shadow: 0px 0px 18px rgba(13, 106, 200, 0.504);
+	flex: 0 1 45%;
+}
+
+.today-log {
+	box-shadow: 0px 0px 18px rgba(43, 150, 8, 0.504);
+	padding: 1rem;
+}
+
+/* Optional: tighten button spacing in logs */
+.log-entry {
+	display: flex;
+	justify-content: space-between;
+	gap: 0.5rem;
+	padding: 0.25rem 0;
+}
+
+.log-section {
+	margin-bottom: 1.5rem;
+}
+
+.log-table {
+	width: 100%;
+	border-collapse: collapse;
+	color: #e3e3e3;
+	font-size: 0.95rem;
+}
+
+.log-table thead {
+	background-color: #333;
+}
+
+.log-table th,
+.log-table td {
+	padding: 0.5rem;
+	text-align: center;
+	border-bottom: 1px solid #444;
+}
+
+.log-table td:last-child,
+.log-table th:last-child {
+	text-align: center;
+	width: 2rem;
+}
+
+.log-table td:first-child {
+	text-align: left;
+}
+
+.log-table button {
+	background-color: #a44343;
+	color: white;
+	border: none;
+	border-radius: 4px;
+	padding: 0.25rem 0.5rem;
+	cursor: pointer;
+	transition: ease all 0.2s;
+}
+
+.log-table button:hover {
+	background-color: #e74c3c;
+}
+
+.quick-add {
+	flex: 1 1 auto;
+	max-height: none; /* ⬅️ Remove cap */
+	height: fit-content;
+}
+
+.quick-add-form {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+	padding: 1rem;
+}
+
+.form-group {
+	display: flex;
+	flex-direction: column;
+	gap: 0.25rem;
+}
+
+.form-group label {
+	font-weight: bold;
+	color: #e0e0e0;
+}
+
+.form-group input,
+.form-group select {
+	padding: 0.5rem;
+	border-radius: 6px;
+	border: 1px solid #555;
+	background-color: #1e1e1e;
+	color: #f1f1f1;
+	font-size: 1rem;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+	outline: none;
+	border-color: #007bff;
+	box-shadow: 0 0 3px rgba(0, 123, 255, 0.5);
+}
+
+.quick-add-form button {
+	align-self: center;
+	margin-top: 1rem;
+	padding: 0.5rem 1rem;
+	border-radius: 8px;
+	background-color: #007bff;
+	color: white;
+	border: none;
+	cursor: pointer;
+	transition: background-color 0.2s ease;
+}
+
+.quick-add-form button:hover {
+	background-color: #0056b3;
 }

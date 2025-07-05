@@ -71,7 +71,7 @@ const MealsPage = () => {
 		};
 
 		updateCalories();
-		console.log("selectedfoods: ", selectedFoods)
+		console.log("selectedfoods: ", selectedFoods);
 	}, [selectedFoods, foods]);
 
 	const handleSubmit = (e) => {
@@ -118,7 +118,9 @@ const MealsPage = () => {
 		<div className="page-content-wrapper">
 			<h1>Meals</h1>
 			<div className="main-food-page-content-wrapper">
-				<FoodItemsPresenter showMeals={true} />
+				<div className="fuck-this">
+					<FoodItemsPresenter showMeals={true} />
+				</div>
 				<div className="quick-edit">
 					<h2>
 						Selected:{" "}

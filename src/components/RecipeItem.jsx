@@ -4,7 +4,7 @@ import { calculateRecipeCalories } from "../helpers/foodHelpers.js";
 import FoodItem from "./FoodItem.jsx";
 import { useSite } from "../pages/SiteProvider.jsx";
 
-const RecipeItem = ({ recipe, component, amount = 1, allowNavigate = true }) => {
+const RecipeItem = ({ recipe, component, amount = 1, allowNavigate = true, parentClick }) => {
 	const { foods } = useSite();
 	const navigate = useNavigate();
 	const [expanded, setExpanded] = useState(false);
@@ -19,7 +19,14 @@ const RecipeItem = ({ recipe, component, amount = 1, allowNavigate = true }) => 
 
 	const handleClick = (e) => {
 		e.stopPropagation();
-		if (allowNavigate) navigate(`/recipes?id=${recipe.id}`);
+		if (allowNavigate) {
+			navigate(`/recipes?id=${recipe.id}`);
+		}else {
+			parentClick({
+				...recipe,
+				calories: calories
+			});
+		}
 	};
 
 	return (

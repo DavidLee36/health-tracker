@@ -9,7 +9,8 @@ const FoodItemsPresenter = ({
 	showFoods = false,
 	showRecipes = false,
 	showMeals = false,
-	allowNavigate = true
+	allowNavigate = true,
+	parentClick
 }) => {
 	const { foods } = useSite();
 	const [searchTerm, setSearchTerm] = useState("");
@@ -46,11 +47,11 @@ const FoodItemsPresenter = ({
 				<div className="food-grid">
 					{itemsToDisplay.map((item, index) => {
 						if (item.type === "meal") {
-							return <MealItem key={index} meal={item} allowNavigate={allowNavigate}/>;
+							return <MealItem key={index} meal={item} allowNavigate={allowNavigate} parentClick={parentClick}/>;
 						} else if (item.type === "recipe") {
-							return <RecipeItem key={index} recipe={item} allowNavigate={allowNavigate}/>;
+							return <RecipeItem key={index} recipe={item} allowNavigate={allowNavigate} parentClick={parentClick}/>;
 						} else if (item.type === "food") {
-							return <FoodItem key={index} food={item} allowNavigate={allowNavigate}/>;
+							return <FoodItem key={index} food={item} allowNavigate={allowNavigate} parentClick={parentClick}/>;
 						}
 						return null;
 					})}

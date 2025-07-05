@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Search from "../components/Search";
 import FoodItemsPresenter from "../components/FoodDataPresenter";
 import { useSite } from "./SiteProvider";
-import { useNavigate } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
 
 const FoodsPage = () => {
 	const { foods, updateFoods } = useSite();
@@ -11,7 +11,7 @@ const FoodsPage = () => {
 		id: "",
 		name: "",
 		calories: "",
-	}
+	};
 	const [formData, setFormData] = useState(initialForm);
 	const query = new URLSearchParams(useLocation().search);
 	const id = query.get("id");
@@ -27,7 +27,7 @@ const FoodsPage = () => {
 					calories: found.calories,
 				});
 			}
-		}else {
+		} else {
 			setFormData(initialForm);
 		}
 	}, [id, foods]);
@@ -54,13 +54,15 @@ const FoodsPage = () => {
 
 	const handleClear = (e) => {
 		navigate("/foods");
-	}
+	};
 
 	return (
 		<div className="page-content-wrapper">
 			<h1>Foods</h1>
 			<div className="main-food-page-content-wrapper">
-				<FoodItemsPresenter showFoods={true} />
+				<div className="fuck-this">
+					<FoodItemsPresenter showFoods={true} />
+				</div>
 				<div className="quick-edit">
 					<h2>
 						Selected:{" "}

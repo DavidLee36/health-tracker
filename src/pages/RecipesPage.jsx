@@ -106,7 +106,9 @@ const RecipesPage = () => {
 		<div className="page-content-wrapper">
 			<h1>Recipes</h1>
 			<div className="main-food-page-content-wrapper">
-				<FoodItemsPresenter showRecipes={true} />
+				<div className="fuck-this">
+					<FoodItemsPresenter showRecipes={true} />
+				</div>
 				<div className="quick-edit">
 					<h2>
 						Selected:{" "}
@@ -165,7 +167,7 @@ const RecipesPage = () => {
 								{foods
 									.filter(
 										(item) =>
-											(item.type === "food") &&
+											item.type === "food" &&
 											item.name
 												.toLowerCase()
 												.includes(
